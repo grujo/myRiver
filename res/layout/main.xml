@@ -50,6 +50,7 @@
             android:background="@drawable/selector"
             android:scaleType="fitXY"
             android:src="@drawable/scissors"
+            android:onClick="onScisorsSelected"
             android:text="scisors" />
 
         <ImageButton
