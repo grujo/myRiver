@@ -24,6 +24,11 @@
             android:background="@drawable/selector"
             android:text="paper" />
 
+        <View
+            android:layout_height="match_parent"
+            android:layout_width="1dp"
+            android:background="#000"/>
+
         <ImageButton
             android:id="@+id/rock"
             android:layout_width="match_parent"
@@ -36,28 +41,36 @@
             android:text="rock" />
     </LinearLayout>
 
+    <View
+        android:layout_height="1dp"
+        android:layout_width="match_parent"
+        android:background="#000"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:weightSum="2">
+        android:weightSum="1">
 
         <ImageButton
             android:id="@+id/scisor"
-            android:layout_width="0dp"
+            android:layout_width="120px"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:background="@drawable/selector"
             android:scaleType="fitXY"
             android:src="@drawable/scissors"
             android:onClick="onScisorsSelected"
             android:text="scisors" />
 
+        <View
+            android:layout_height="match_parent"
+            android:layout_width="1dp"
+            android:background="#000"/>
+
         <ImageButton
             android:id="@+id/rand"
-            android:layout_width="0dp"
+            android:layout_width="120px"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:background="@drawable/selector"
             android:onClick="onRandSelected"
             android:scaleType="fitXY"
