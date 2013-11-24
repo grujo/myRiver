@@ -1,14 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
-              android:layout_width="fill_parent"
-              android:layout_height="fill_parent"
-        >
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
 
-    <TextView
-            android:layout_width="fill_parent"
+    <Button
+            android:id="@+id/paper"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hello World, MainActivity"
-            />
+            android:onClick="onPaperSelected"
+            android:text="paper"/>
+
+    <Button
+            android:id="@+id/rock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onRockSelected"
+            android:text="rock"/>
+
+    <Button
+            android:id="@+id/scisor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onScisorsSelected"
+            android:text="scisors"/>
+
+    <Button
+            android:id="@+id/rand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onRandSelected"
+            android:text="random"/>
+
 </LinearLayout>
 
