@@ -3,6 +3,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:gravity="center"
+    android:background="@android:color/white"
     android:orientation="vertical"
     android:weightSum="2">
 
@@ -27,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@null"
+            android:background="@drawable/selector"
             android:onClick="onRockSelected"
             android:scaleType="fitXY"
             android:src="@drawable/rock"
@@ -45,8 +46,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@null"
-            android:onClick="onScisorsSelected"
+            android:background="@drawable/selector"
             android:scaleType="fitXY"
             android:src="@drawable/scissors"
             android:text="scisors" />
@@ -56,7 +56,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@null"
+            android:background="@drawable/selector"
             android:onClick="onRandSelected"
             android:scaleType="fitXY"
             android:src="@drawable/random"
