@@ -1,36 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
+              android:gravity="center"
               android:layout_width="fill_parent"
               android:layout_height="fill_parent">
 
-    <Button
-            android:id="@+id/paper"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onPaperSelected"
-            android:text="paper"/>
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:weightSum="2">
 
-    <Button
-            android:id="@+id/rock"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onRockSelected"
-            android:text="rock"/>
+        <Button
+                android:id="@+id/paper"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onPaperSelected"
+                android:text="paper"/>
+        <Button
+                android:id="@+id/rock"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onRockSelected"
+                android:text="rock"/>
+    </LinearLayout>
 
-    <Button
-            android:id="@+id/scisor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onScisorsSelected"
-            android:text="scisors"/>
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:weightSum="2">
 
-    <Button
-            android:id="@+id/rand"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onRandSelected"
-            android:text="random"/>
-
+        <Button
+                android:id="@+id/scisor"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onScisorsSelected"
+                android:text="scisors"/>
+        <Button
+                android:id="@+id/rand"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onRandSelected"
+                android:text="random"/>
+    </LinearLayout>
 </LinearLayout>
 
