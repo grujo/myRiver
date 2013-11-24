@@ -1,0 +1,73 @@
+package nl.droidcon.myriver;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.os.Parcelable;
+import android.util.Log;
+import android.view.View;
+import android.widget.Toast;
+import it.imwatch.SimpleShakeDetector;
+
+/**
+ * Write comment here.
+ * <p/>
+ * Creator: <lukasz.izmajlowicz@mydriver.com>
+ * Date: 24/11/13
+ */
+public class ShakeDetectorActivity extends Activity implements SimpleShakeDetector.OnShakeListener {
+    private SimpleShakeDetector simpleShakeDetector;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.shake);
+
+        simpleShakeDetector = new SimpleShakeDetector(this, this, SimpleShakeDetector.DEFAULT_UPDATE_INTERVAL);
+        simpleShakeDetector.setMinGestureSize(1);
+
+        resetView = findViewById(R.id.reset);
+        resetView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                shakedTimes = 0;
+                Log.i("MR", "Reset to 0");
+            }
+        });
+
+        final Bundle extras = getIntent().getExtras();
+        if (getIntent().hasExtra("mode")) {
+            final MainActivity.Mode mode = extras.getParcelable("mode");
+            toast(mode.name());
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        simpleShakeDetector.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        simpleShakeDetector.onPause();
+        super.onPause();
+    }
+
+    private int shakedTimes = 0;
+
+    @Override
+    public void onShakeDetected(int i) {
+        Log.i("MR", "" + shakedTimes);
+
+        if (shakedTimes++ >= 2) {
+            Log.i("MR", "Rock!");
+            shakedTimes = 0;
+        }
+    }
+
+    private void toast(String log) {
+        Toast.makeText(this, log, 0).show();
+    }
+
+    private View resetView;
+}

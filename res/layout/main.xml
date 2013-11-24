@@ -1,15 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:gravity="center"
-    android:orientation="vertical">
+              android:orientation="vertical"
+              android:gravity="center"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:weightSum="2">
 
-    <Button
-        android:id="@+id/reset"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_weight="1"
+                  android:weightSum="2">
 
-        android:text="Reset" />
+        <ImageButton
+                android:id="@+id/paper"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onPaperSelected"
+                android:text="paper"
+                android:scaleType="fitCenter"
+                android:background="@drawable/paper"/>
+        <ImageButton
+                android:id="@+id/rock"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onRockSelected"
+                android:text="rock"
+                android:scaleType="fitCenter"
+                android:background="@drawable/rock"/>
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_weight="1"
+                  android:weightSum="2">
+
+        <ImageButton
+                android:id="@+id/scisor"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onScisorsSelected"
+                android:text="scisors"
+                android:scaleType="fitCenter"
+                android:background="@drawable/scissors"/>
+        <ImageButton
+                android:id="@+id/rand"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"
+                android:onClick="onRandSelected"
+                android:text="random"/>
+    </LinearLayout>
 </LinearLayout>
 
