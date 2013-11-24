@@ -8,6 +8,9 @@
     <application
         android:icon="@drawable/rock"
         android:label="@string/app_name">
+
+        <activity android:name=".ShakeDetectorActivity" />
+
         <activity
             android:theme="@android:style/Theme.NoTitleBar"
             android:name="MainActivity"
