@@ -11,8 +11,7 @@ import android.widget.Button;
 import android.widget.Toast;
 import it.imwatch.SimpleShakeDetector;
 
-public class MainActivity extends Activity implements SimpleShakeDetector.OnShakeListener {
-    private SimpleShakeDetector simpleShakeDetector;
+public class MainActivity extends Activity {
 
 
     private Mode mSelectedMode = Mode.RAND;
@@ -54,65 +53,24 @@ public class MainActivity extends Activity implements SimpleShakeDetector.OnShak
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         bindViews();
-
-        simpleShakeDetector = new SimpleShakeDetector(this, this, SimpleShakeDetector.DEFAULT_UPDATE_INTERVAL);
-        simpleShakeDetector.setMinGestureSize(1);
-
-
-        resetView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                shakedTimes = 0;
-                Log.i("MR", "Reset to 0");
-            }
-        });
-    }
-
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        simpleShakeDetector.onResume();
-    }
-
-    @Override
-    protected void onPause() {
-        simpleShakeDetector.onPause();
-        super.onPause();
-    }
-
-    private int shakedTimes = 0;
-
-    @Override
-    public void onShakeDetected(int i) {
-        Log.i("MR", "" + shakedTimes);
-
-        if (shakedTimes++ >= 2) {
-            Log.i("MR", "Rock!");
-            shakedTimes = 0;
-        }
     }
 
     public void onPaperSelected(View view) {
-        toast("paper");
         mSelectedMode = Mode.PAPER;
         showDetector();
     }
 
     public void onRockSelected(View view) {
-        toast("rock");
         mSelectedMode = Mode.ROCK;
         showDetector();
     }
 
     public void onScisorsSelected(View view) {
-        toast("scisors");
         mSelectedMode = Mode.SCISORS;
         showDetector();
     }
 
     public void onRandSelected(View view) {
-        toast("random");
         mSelectedMode = Mode.RAND;
         showDetector();
     }
@@ -126,21 +84,16 @@ public class MainActivity extends Activity implements SimpleShakeDetector.OnShak
         startActivity(intent);
     }
 
-    private void toast(String log) {
-        Toast.makeText(this, log, 0).show();
-    }
-
     private void bindViews() {
         mPaper = (Button) findViewById(R.id.paper);
         mRock = (Button) findViewById(R.id.paper);
         mScrisors = (Button) findViewById(R.id.paper);
         mRandom = (Button) findViewById(R.id.paper);
-        resetView = findViewById(R.id.reset);
+
     }
 
     private Button mPaper;
     private Button mRock;
     private Button mScrisors;
     private Button mRandom;
-    private View resetView;
 }

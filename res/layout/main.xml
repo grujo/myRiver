@@ -31,11 +31,6 @@
             android:layout_height="wrap_content"
             android:onClick="onRandSelected"
             android:text="random"/>
-    <Button
-            android:id="@+id/reset"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
 
-            android:text="Reset"/>
 </LinearLayout>
 
