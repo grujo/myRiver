@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 import it.imwatch.SimpleShakeDetector;
+import nl.droidcon.myriver.logic.SimpleAI;
 
 /**
  * Write comment here.
@@ -18,6 +19,7 @@ import it.imwatch.SimpleShakeDetector;
 public class ShakeDetectorActivity extends Activity implements SimpleShakeDetector.OnShakeListener {
     private SimpleShakeDetector simpleShakeDetector;
     private TextView counterView;
+    private MainActivity.Mode mMode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,8 +42,8 @@ public class ShakeDetectorActivity extends Activity implements SimpleShakeDetect
 
         final Bundle extras = getIntent().getExtras();
         if (getIntent().hasExtra("mode")) {
-            final MainActivity.Mode mode = extras.getParcelable("mode");
-            toast(mode.name());
+            mMode = extras.getParcelable("mode");
+//            toast(mMode.name());
         }
 
         updateCounterInUi();
@@ -68,6 +70,9 @@ public class ShakeDetectorActivity extends Activity implements SimpleShakeDetect
 
         if (shakedTimes++ >= 2) {
             Log.i("MR", "Rock!");
+
+            toast(mMode.name() + " vs " + SimpleAI.runAI().name());
+
             shakedTimes = 0;
         }
     }
