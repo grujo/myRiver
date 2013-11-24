@@ -21,6 +21,7 @@
             android:onClick="onPaperSelected"
             android:scaleType="fitXY"
             android:src="@drawable/paper"
+            android:background="@drawable/selector"
             android:text="paper" />
 
         <ImageButton
