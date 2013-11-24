@@ -8,6 +8,7 @@ import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 import it.imwatch.SimpleShakeDetector;
 
@@ -85,15 +86,15 @@ public class MainActivity extends Activity {
     }
 
     private void bindViews() {
-        mPaper = (Button) findViewById(R.id.paper);
-        mRock = (Button) findViewById(R.id.paper);
-        mScrisors = (Button) findViewById(R.id.paper);
-        mRandom = (Button) findViewById(R.id.paper);
+        mPaper = (ImageButton) findViewById(R.id.paper);
+        mRock = (ImageButton) findViewById(R.id.paper);
+        mScrisors = (ImageButton) findViewById(R.id.paper);
+        mRandom = (ImageButton) findViewById(R.id.paper);
 
     }
 
-    private Button mPaper;
-    private Button mRock;
-    private Button mScrisors;
-    private Button mRandom;
+    private ImageButton mPaper;
+    private ImageButton mRock;
+    private ImageButton mScrisors;
+    private ImageButton mRandom;
 }
