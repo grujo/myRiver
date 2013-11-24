@@ -3,11 +3,13 @@ package nl.droidcon.myriver;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import it.imwatch.SimpleShakeDetector;
 
 public class MainActivity extends Activity implements SimpleShakeDetector.OnShakeListener {
     private SimpleShakeDetector simpleShakeDetector;
+    private View resetView;
 
     /**
      * Called when the activity is first created.
@@ -17,8 +19,17 @@ public class MainActivity extends Activity implements SimpleShakeDetector.OnShak
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
-        simpleShakeDetector = new SimpleShakeDetector(this, this, 100);
+        simpleShakeDetector = new SimpleShakeDetector(this, this, SimpleShakeDetector.DEFAULT_UPDATE_INTERVAL);
         simpleShakeDetector.setMinGestureSize(1);
+
+        resetView = findViewById(R.id.reset);
+        resetView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                shakedTimes = 0;
+                Log.i("MR", "Reset to 0");
+            }
+        });
     }
 
 
@@ -38,9 +49,12 @@ public class MainActivity extends Activity implements SimpleShakeDetector.OnShak
 
     @Override
     public void onShakeDetected(int i) {
-        if (shakedTimes++ >= 3) {
+        Log.i("MR", "" + shakedTimes);
+
+        if (shakedTimes++ >= 2) {
             Log.i("MR", "Rock!");
             shakedTimes = 0;
         }
     }
+
 }
