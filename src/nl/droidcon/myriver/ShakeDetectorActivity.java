@@ -73,8 +73,11 @@ public class ShakeDetectorActivity extends Activity implements SimpleShakeDetect
 
             shakedTimes = 0;
 
-            MainActivity.Mode generatedMode = SimpleAI.runAI();
-            showResultScreen(generatedMode);
+            if (mMode.equals(MainActivity.Mode.RAND)) {
+                mMode = SimpleAI.runAI();
+            }
+
+            showResultScreen(mMode);
         }
     }
 
