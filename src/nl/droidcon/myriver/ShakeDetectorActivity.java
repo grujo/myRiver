@@ -1,6 +1,7 @@
 package nl.droidcon.myriver;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.Log;
@@ -43,7 +44,6 @@ public class ShakeDetectorActivity extends Activity implements SimpleShakeDetect
         final Bundle extras = getIntent().getExtras();
         if (getIntent().hasExtra("mode")) {
             mMode = extras.getParcelable("mode");
-//            toast(mMode.name());
         }
 
         updateCounterInUi();
@@ -71,10 +71,21 @@ public class ShakeDetectorActivity extends Activity implements SimpleShakeDetect
         if (shakedTimes++ >= 2) {
             Log.i("MR", "Rock!");
 
-            toast(mMode.name() + " vs " + SimpleAI.runAI().name());
-
             shakedTimes = 0;
+
+            MainActivity.Mode generatedMode = SimpleAI.runAI();
+            showResultScreen(generatedMode);
         }
+    }
+
+    private void showResultScreen(MainActivity.Mode mode) {
+        Bundle extras = new Bundle();
+        extras.putParcelable("mode", mode);
+
+        Intent intent = new Intent(this, ResultActivity.class);
+        intent.putExtras(extras);
+        startActivity(intent);
+        finish();
     }
 
     private void updateCounterInUi() {

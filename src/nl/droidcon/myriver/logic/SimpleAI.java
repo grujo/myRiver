@@ -13,8 +13,8 @@ import java.util.Random;
 public class SimpleAI {
 
     public static MainActivity.Mode runAI() {
-        Random random = new Random(3);
-        final int i = random.nextInt();
+        Random random = new Random();
+        int i = random.nextInt(3);
 
         if (i == 0) {
             return MainActivity.Mode.PAPER;
