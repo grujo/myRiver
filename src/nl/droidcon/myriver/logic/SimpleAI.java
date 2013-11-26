@@ -21,7 +21,7 @@ public class SimpleAI {
         } else if (i == 1) {
             return MainActivity.Mode.ROCK;
         } else if (i == 2) {
-            return MainActivity.Mode.SCISORS;
+            return MainActivity.Mode.SCISSORS;
         } else {
             return MainActivity.Mode.RAND;
         }

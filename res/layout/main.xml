@@ -21,30 +21,20 @@
             android:onClick="onPaperSelected"
             android:scaleType="fitXY"
             android:src="@drawable/paper"
-            android:background="@drawable/selector"
+            android:background="@drawable/selector_paper"
             android:text="paper" />
-
-        <View
-            android:layout_height="match_parent"
-            android:layout_width="1dp"
-            android:background="#000"/>
 
         <ImageButton
             android:id="@+id/rock"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/selector"
+            android:background="@drawable/selector_rock"
             android:onClick="onRockSelected"
             android:scaleType="fitXY"
             android:src="@drawable/rock"
             android:text="rock" />
     </LinearLayout>
-
-    <View
-        android:layout_height="1dp"
-        android:layout_width="match_parent"
-        android:background="#000"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -56,22 +46,17 @@
             android:id="@+id/scisor"
             android:layout_width="120px"
             android:layout_height="wrap_content"
-            android:background="@drawable/selector"
+            android:background="@drawable/selector_scissors"
             android:scaleType="fitXY"
             android:src="@drawable/scissors"
             android:onClick="onScisorsSelected"
             android:text="scisors" />
 
-        <View
-            android:layout_height="match_parent"
-            android:layout_width="1dp"
-            android:background="#000"/>
-
         <ImageButton
             android:id="@+id/rand"
             android:layout_width="120px"
             android:layout_height="wrap_content"
-            android:background="@drawable/selector"
+            android:background="@drawable/selector_random"
             android:onClick="onRandSelected"
             android:scaleType="fitXY"
             android:src="@drawable/random"

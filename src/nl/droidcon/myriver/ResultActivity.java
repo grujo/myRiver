@@ -2,7 +2,6 @@ package nl.droidcon.myriver;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.View;
 import android.widget.ImageButton;
 
@@ -13,6 +12,8 @@ import android.widget.ImageButton;
  * Date: 24/11/13
  */
 public class ResultActivity extends Activity {
+    private ImageButton mResultButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,20 +28,13 @@ public class ResultActivity extends Activity {
 
         final Bundle extras = getIntent().getExtras();
         if (getIntent().hasExtra("mode")) {
-            final Parcelable mode = extras.getParcelable("mode");
+            final MainActivity.Mode mode = extras.getParcelable("mode");
             showResultImage(mode);
         }
     }
 
-    private void showResultImage(Parcelable mode) {
-        if (mode.equals(MainActivity.Mode.PAPER)) {
-            mResultButton.setImageDrawable(getResources().getDrawable(R.drawable.paper));
-        } else if (mode.equals(MainActivity.Mode.ROCK)) {
-            mResultButton.setImageDrawable(getResources().getDrawable(R.drawable.rock));
-        } else {
-            mResultButton.setImageDrawable(getResources().getDrawable(R.drawable.scissors));
-        }
+    private void showResultImage(MainActivity.Mode mode) {
+        mResultButton.setBackgroundResource(mode.background());
+        mResultButton.setImageResource(mode.picture());
     }
-
-    ImageButton mResultButton;
 }

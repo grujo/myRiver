@@ -14,10 +14,26 @@ public class MainActivity extends Activity {
     private Mode mSelectedMode = Mode.RAND;
 
     public enum Mode implements Parcelable {
-        PAPER,
-        ROCK,
-        SCISORS,
-        RAND;
+        PAPER(R.drawable.paper, R.drawable.selector_paper),
+        ROCK(R.drawable.rock, R.drawable.selector_rock),
+        SCISSORS(R.drawable.scissors, R.drawable.selector_scissors),
+        RAND(R.drawable.random, R.drawable.selector_random);
+
+        private final int background;
+        private final int picture;
+
+        Mode(int picture, int background) {
+            this.picture = picture;
+            this.background = background;
+        }
+
+        public int background() {
+            return background;
+        }
+
+        public int picture() {
+            return picture;
+        }
 
         @Override
         public int describeContents() {
@@ -63,7 +79,7 @@ public class MainActivity extends Activity {
     }
 
     public void onScisorsSelected(View view) {
-        mSelectedMode = Mode.SCISORS;
+        mSelectedMode = Mode.SCISSORS;
         showDetector();
     }
 
