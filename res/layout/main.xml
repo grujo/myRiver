@@ -1,66 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:gravity="center"
-    android:background="@android:color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
     android:orientation="vertical"
     android:weightSum="2">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_weight="1"
         android:weightSum="2">
 
         <ImageButton
             android:id="@+id/paper"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:onClick="onPaperSelected"
-            android:scaleType="fitXY"
-            android:src="@drawable/paper"
             android:background="@drawable/selector_paper"
-            android:text="paper" />
+            android:scaleType="fitXY"
+            android:src="@drawable/paper" />
 
         <ImageButton
             android:id="@+id/rock"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/selector_rock"
-            android:onClick="onRockSelected"
+            android:background="@drawable/selector_scissors"
             android:scaleType="fitXY"
-            android:src="@drawable/rock"
-            android:text="rock" />
+            android:src="@drawable/rock" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_weight="1"
-        android:weightSum="1">
+        android:weightSum="2">
 
         <ImageButton
-            android:id="@+id/scisor"
-            android:layout_width="120px"
-            android:layout_height="wrap_content"
-            android:background="@drawable/selector_scissors"
+            android:id="@+id/scissors"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/selector_random"
             android:scaleType="fitXY"
-            android:src="@drawable/scissors"
-            android:onClick="onScisorsSelected"
-            android:text="scisors" />
+            android:src="@drawable/scissors" />
 
         <ImageButton
             android:id="@+id/rand"
-            android:layout_width="120px"
-            android:layout_height="wrap_content"
-            android:background="@drawable/selector_random"
-            android:onClick="onRandSelected"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/selector_rock"
             android:scaleType="fitXY"
-            android:src="@drawable/random"
-            android:text="random" />
+            android:src="@drawable/random" />
     </LinearLayout>
 </LinearLayout>
 

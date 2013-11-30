@@ -6,19 +6,62 @@ import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.view.View;
-import android.widget.ImageButton;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements View.OnClickListener {
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
 
-    private Mode mSelectedMode = Mode.RAND;
+        View paper = findViewById(R.id.paper);
+        paper.setTag(Mode.PAPER);
+        paper.setOnClickListener(this);
+
+        View rock = findViewById(R.id.rock);
+        rock.setTag(Mode.ROCK);
+        rock.setOnClickListener(this);
+
+        View scissors = findViewById(R.id.scissors);
+        scissors.setTag(Mode.SCISSORS);
+        scissors.setOnClickListener(this);
+
+        View random = findViewById(R.id.rand);
+        random.setTag(Mode.RAND);
+        random.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        Mode mode= (Mode) v.getTag();
+        showDetector(mode);
+    }
+
+    private void showDetector(Mode mode) {
+        Bundle extras = new Bundle();
+        extras.putParcelable("mode", mode);
+
+        Intent intent = new Intent(this, ShakeDetectorActivity.class);
+        intent.putExtras(extras);
+        startActivity(intent);
+    }
 
     public enum Mode implements Parcelable {
         PAPER(R.drawable.paper, R.drawable.selector_paper),
         ROCK(R.drawable.rock, R.drawable.selector_rock),
         SCISSORS(R.drawable.scissors, R.drawable.selector_scissors),
         RAND(R.drawable.random, R.drawable.selector_random);
+        public static final Creator<Mode> CREATOR = new Parcelable.Creator<Mode>() {
+            @Override
+            public Mode createFromParcel(final Parcel source) {
+                return Mode.values()[source.readInt()];
+            }
 
+            @Override
+            public Mode[] newArray(final int size) {
+                return new Mode[size];
+            }
+        };
         private final int background;
         private final int picture;
 
@@ -44,69 +87,5 @@ public class MainActivity extends Activity {
         public void writeToParcel(final Parcel dest, final int flags) {
             dest.writeInt(ordinal());
         }
-
-        public static final Creator<Mode> CREATOR = new Parcelable.Creator<Mode>() {
-            @Override
-            public Mode createFromParcel(final Parcel source) {
-                return Mode.values()[source.readInt()];
-            }
-
-            @Override
-            public Mode[] newArray(final int size) {
-                return new Mode[size];
-            }
-        };
     }
-
-    /**
-     * Called when the activity is first created.
-     */
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
-        bindViews();
-    }
-
-    public void onPaperSelected(View view) {
-        mSelectedMode = Mode.PAPER;
-        showDetector();
-    }
-
-    public void onRockSelected(View view) {
-        mSelectedMode = Mode.ROCK;
-        showDetector();
-    }
-
-    public void onScisorsSelected(View view) {
-        mSelectedMode = Mode.SCISSORS;
-        showDetector();
-    }
-
-    public void onRandSelected(View view) {
-        mSelectedMode = Mode.RAND;
-        showDetector();
-    }
-
-    private void showDetector() {
-        Bundle extras = new Bundle();
-        extras.putParcelable("mode", mSelectedMode);
-
-        Intent intent = new Intent(MainActivity.this, ShakeDetectorActivity.class);
-        intent.putExtras(extras);
-        startActivity(intent);
-    }
-
-    private void bindViews() {
-        mPaper = (ImageButton) findViewById(R.id.paper);
-        mRock = (ImageButton) findViewById(R.id.paper);
-        mScrisors = (ImageButton) findViewById(R.id.paper);
-        mRandom = (ImageButton) findViewById(R.id.paper);
-
-    }
-
-    private ImageButton mPaper;
-    private ImageButton mRock;
-    private ImageButton mScrisors;
-    private ImageButton mRandom;
 }
