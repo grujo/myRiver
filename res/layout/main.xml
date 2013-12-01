@@ -26,7 +26,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/selector_scissors"
+            android:background="@drawable/selector_rock"
             android:scaleType="fitXY"
             android:src="@drawable/rock" />
     </LinearLayout>
@@ -42,7 +42,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/selector_random"
+            android:background="@drawable/selector_scissors"
             android:scaleType="fitXY"
             android:src="@drawable/scissors" />
 
@@ -51,7 +51,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/selector_rock"
+            android:background="@drawable/selector_random"
             android:scaleType="fitXY"
             android:src="@drawable/random" />
     </LinearLayout>

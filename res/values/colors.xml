@@ -5,5 +5,10 @@
     <color name="green">#669900</color>
     <color name="orange">#ff8a00</color>
     <color name="white">#eeeeee</color>
-    <color name="shake_background">@color/green</color>
+
+    <color name="paper">@color/blue</color>
+    <color name="rock">@color/red</color>
+    <color name="scissors">@color/orange</color>
+    <color name="random">@color/green</color>
+    <color name="shake_background">@color/random</color>
 </resources>
